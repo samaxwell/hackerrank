@@ -5,6 +5,14 @@ import java.math.*;
 import java.util.regex.*;
 
     //Write your code here
+    class Arithmetic {
+        public int add(int arg1, int arg2) {
+            return arg1+arg2;
+        }
+    }
+    class Adder extends Arithmetic {
+
+    }
 
     public class Solution{
         public static void main(String []args){
