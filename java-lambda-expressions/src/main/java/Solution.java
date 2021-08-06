@@ -1,5 +1,7 @@
 import java.io.*;
 import java.util.*;
+import java.util.function.Function;
+
 interface PerformOperation {
     boolean check(int a);
 }
@@ -8,6 +10,28 @@ class MyMath {
         return p.check(num);
     }
 
+    public static PerformOperation isOdd() {
+        return (int n) -> n%2 != 0;
+    }
+    public static PerformOperation isPrime() {
+        return (int n) -> {
+            boolean isPrime = true;
+            for (int i = 2; i <= n / 2; ++i) {
+                if (n % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            return isPrime;
+        };
+    }
+    public static PerformOperation isPalindrome() {
+        return (int number) -> {
+            String l2r = Integer.toString(number);
+            String r2l = new StringBuilder(l2r).reverse().toString();
+            return l2r.equals(r2l);
+        };
+    }
     // Write your code here
 
 }
