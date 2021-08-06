@@ -1,10 +1,9 @@
-import token.Token;
-import token.Tokenizer;
-
-import java.util.List;
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 import java.util.Scanner;
-import java.util.Stack;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Solution {
 
@@ -15,31 +14,21 @@ public class Solution {
         while(testCases>0){
             String line = in.nextLine();
 
-            Tokenizer tokenizer = new Tokenizer();
-            List<Token> tokens = tokenizer.tokenize(line);
+            boolean matchFound = false;
 
-            Stack<Token> stack = new Stack<>();
-            String content = null;
+            Pattern r = Pattern.compile("<(.+)>([^<]+)</\\1>");
+            Matcher m = r.matcher(line);
 
-            for (Token t: tokens) {
-                if (t.isStartToken()) {
-                    stack.push(t);
-                }
-                else if (t.isContent()) {
-                    content = t.getContent();
-                }
-                else if (t.isEndToken()) {
-                    if (stack.peek().isPair(t) && content != null) {
-                        System.out.println(content);
-                    }
-                    content= null;
-                    stack.pop();
-                }
+            while (m.find()) {
+                System.out.println(m.group(1));
+                System.out.println(m.group(2));
+                matchFound = true;
+            }
+            if (!matchFound) {
+                System.out.println("None");
             }
 
             testCases--;
         }
     }
-
-
 }
