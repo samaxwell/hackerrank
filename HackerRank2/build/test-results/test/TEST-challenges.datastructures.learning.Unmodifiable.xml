@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="challenges.datastructures.learning.Unmodifiable" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-28T21:20:01" hostname="AMBUS130899" time="0.024">
+  <properties/>
+  <testcase name="testIt()" classname="challenges.datastructures.learning.Unmodifiable" time="0.024"/>
+  <system-out><![CDATA[Didn't work
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
